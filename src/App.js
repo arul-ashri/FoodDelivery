@@ -3,7 +3,6 @@ import NavbarComponent from './Components/NavbarComponent';
 import Salad from './Components/SaladComponent';
 import './App.css';
 import SaladData from './Shared/SaladData';
-import CartComponent from './Components/CartComponent';
 
 
 
@@ -20,8 +19,7 @@ class App extends Component {
     return (
       <div>
       <NavbarComponent />
-      <Salad data={this.state.Salad} />
-      <CartComponent />
+      <Salad data={this.state.Salad} />\
       </div>
     )
   }

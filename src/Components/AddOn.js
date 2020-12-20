@@ -8,14 +8,14 @@ function AddOn(data) {
     const [cart, setCart] = useState([]);
 
     const AddtoCart = (data) =>{
-       console.log('we are cart');
+       console.log('we cart');
         setCart([...cart,data]);
     }
    
     return (
         <div className="container">
     
-             <Button  onClick={() =>AddtoCart}> Add To Cart ({cart.length})</Button>
+             <Button  onClick={() =>AddtoCart(data)}> Add To Cart ({cart.length})</Button>
         </div>
     )
 }
