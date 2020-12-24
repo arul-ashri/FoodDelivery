@@ -21,7 +21,7 @@ function Salad ({data,setCart,cart}) {
                     <CardSubtitle>{data.desc}</CardSubtitle>
                     <div className="row"> 
                         <div className="col-7"> <CardText tag="h3">₹{data.price}</CardText> </div>
-                        <div className="col-5"> <Button  onClick={() =>AddtoCart(data)}> Add To Cart</Button> </div>
+                        <div className="col-5"> <Button  onClick={() =>AddtoCart(data)}> Add</Button> </div>
                     </div>
                    
                 </CardBody>

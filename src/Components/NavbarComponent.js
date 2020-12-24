@@ -1,20 +1,21 @@
 import React from 'react';
 import { Navbar, NavbarBrand, Nav,  NavItem,Jumbotron  } from 'reactstrap';
-const NavbarComponent = () => {
+import { Link} from "react-router-dom";
+const NavbarComponent = ({numb}) => {
     return (
         <div>
             <Navbar fixed='top' dark >
                 <div className="container">
                     <NavbarBrand className="mr-auto" href="/">
-                        <img src="assets/images/logonew.png" height="30"  alt="Ristorance Con Fusion" />
+                       <Link to="/"> <img src="assets/images/logonew.png" height="30"  alt="Ristorance Con Fusion" /></Link>
                     </NavbarBrand>
                    
                     <Nav className="ml-auto" navbar>
                         <NavItem className="row">
                             <a className="nav-link" href="/menu"> 
-                                <span className="fa fa-shopping-cart fa-lg " aria-hidden="true"></span> 
+                               <Link to="/cart"><span className="fa fa-shopping-cart fa-lg " aria-hidden="true"></span> </Link>
                             </a>
-                            1
+                            {numb}
                       </NavItem>
                     </Nav>
                 </div>
