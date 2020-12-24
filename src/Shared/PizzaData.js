@@ -1,23 +1,33 @@
-const Pizza =[
+const PizzaData =[
     { 
-        name: 'Margherita Pizaa',
-        desc: 'Topped with mozzarella cheese and tomates.',
-        price: '285',
+        id: 1,
+        name: 'Pizza',
+        desc: 'iceberg lettuce,sun dried tomatoes, black olives adn croutouns, topped with parmesan chesse',
+        price: '235',
         veg: true,
     },
     { 
-        name: 'Spinach Corn Pizaa',
-        desc: 'Topped with Spinach and american corn.',
-        price: '295',
+        id: 2,
+        name: 'Pizza',
+        desc: 'iceberg lettuce,sun dried tomatoes, black olives adn croutouns, topped with parmesan chesse',
+        price: '235',
         veg: true,
     },
     { 
-        name: 'Veg Exotica',
-        desc: 'Topped with onions, american corn, jalepons, bell pepper, babycorn and olives.',
-        price: '305',
+        id: 3,
+        name: 'Pizza',
+        desc: 'iceberg lettuce,sun dried tomatoes, black olives adn croutouns, topped with parmesan chesse',
+        price: '245',
+        veg: false,
+    },
+    { 
+        id: 4,
+        name: 'Pizza',
+        desc: 'iceberg lettuce,sun dried tomatoes, black olives adn croutouns, topped with parmesan chesse',
+        price: '235',
         veg: true,
     },
     
 ]
 
-export default Pizza;
+export default PizzaData;

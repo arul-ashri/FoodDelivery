@@ -1,28 +1,25 @@
-import React ,{Component}from 'react';
+import React ,{ useState}from 'react';
 import NavbarComponent from './Components/NavbarComponent';
-import Salad from './Components/SaladComponent';
 import './App.css';
-import SaladData from './Shared/SaladData';
+
+import MenuRender from './Components/MenuRender';
+import CartComponent from './Components/Cart';
 
 
 
-class App extends Component {
-  constructor(props) {
-    super(props);
+const App = () => {
 
-    this.state = {
-        Salad: SaladData,
-    };
+  const [cart, setCart] = useState([]);
+  return (
+    <div>
+    <NavbarComponent />
+    
+    <MenuRender setCart={setCart} cart={cart} />
+    <CartComponent  cart={cart} setCart={setCart}/>
+    </div>
+  )
 }
 
-  render() {
-    return (
-      <div>
-      <NavbarComponent />
-      <Salad data={this.state.Salad} />\
-      </div>
-    )
-  }
-}
 export default App;
+
 
