@@ -5,7 +5,7 @@ import PizzaData from '../Shared/PizzaData';
 import CarouselComp from './CarouselComp';
 
 
-const MenuRender = (setCart,cart) => {
+const MenuRender = ({setCart,cart}) => {
 
     return (
         <div>
