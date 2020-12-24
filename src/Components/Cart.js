@@ -18,10 +18,10 @@ const CartComponent = ({setCart,cart}) => {
             <div className="mt-2 col-md-7">
                 <Card>
                 <CardBody>
-                    <CardTitle tag="h3">{data.data.name}</CardTitle>
-                    <CardSubtitle>{data.data.desc}</CardSubtitle>
+                    <CardTitle tag="h3">{data.name}</CardTitle>
+                    <CardSubtitle>{data.desc}</CardSubtitle>
                     <div className="row"> 
-                        <div className="col-7"> <CardText tag="h3">₹{data.data.price}</CardText> </div>
+                        <div className="col-7"> <CardText tag="h3">₹{data.price}</CardText> </div>
                         <div className="col-5"> <Button  onClick={() =>RemoveCart(data)}> Remove</Button> </div>
                     </div>
                    
@@ -39,7 +39,7 @@ const CartComponent = ({setCart,cart}) => {
 
     var CartList = cart.map(data =>{
         return(
-            <CartItem data={cart} key={data.data.id} />
+            <CartItem data={data} key={data.id} />
 
         );
     });
