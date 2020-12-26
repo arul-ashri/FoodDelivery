@@ -48,7 +48,7 @@ const CartComponent = ({setCart,cart}) => {
         <div className="container">
            <div>
             
-           <h1>Cart ({cart.length})</h1>
+           <h1 align="center">Cart ({cart.length})</h1>
                  <div>
                   {CartList}
                  </div>

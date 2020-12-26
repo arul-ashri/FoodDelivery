@@ -12,15 +12,13 @@ const App = () => {
   const [cart, setCart] = useState([]);
   return (
     <Router>
-    <div>
-    <NavbarComponent numb={cart.length} />
-    
-    <Switch>
-    <Route exact path ="/"> <MenuRender setCart={setCart}  cart={cart}/> </Route>
-    <Route path="/cart"> <CartComponent  cart={cart} setCart={setCart}/> </Route>
-    </Switch>
-    
-    </div>
+      <div>
+        <NavbarComponent numb={cart.length} />
+        <Switch>
+          <Route exact path ="/"> <MenuRender setCart={setCart}  cart={cart}/> </Route>
+          <Route path="/cart"> <CartComponent  cart={cart} setCart={setCart}/> </Route>
+        </Switch>
+      </div>
     </Router>
   )
 }

@@ -9,6 +9,14 @@ function Salad ({data,setCart,cart}) {
     const AddtoCart = (data) =>{
         setCart([...cart,data]);
     }
+
+    const isInCart = (data) => {
+        return !cart.find(item => item.id === data.id);
+    }
+
+    const AddMore = (data) =>{
+        setCart([...cart,data.quantity++]);
+    }
     
 
    
@@ -21,7 +29,8 @@ function Salad ({data,setCart,cart}) {
                     <CardSubtitle>{data.desc}</CardSubtitle>
                     <div className="row"> 
                         <div className="col-7"> <CardText tag="h3">₹{data.price}</CardText> </div>
-                        <div className="col-5"> <Button  onClick={() =>AddtoCart(data)}> Add</Button> </div>
+                        { isInCart(data) && <div className="col-5"> <Button  onClick={() =>AddtoCart(data)}> Add to Cart</Button> </div>}
+                        { !isInCart(data) && <div className="col-5"> <Button  onClick={() =>AddMore(data)}> Add More</Button> </div>}
                     </div>
                    
                 </CardBody>

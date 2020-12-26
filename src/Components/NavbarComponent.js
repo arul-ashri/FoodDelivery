@@ -1,5 +1,5 @@
 import React from 'react';
-import { Navbar, NavbarBrand, Nav,  NavItem,Jumbotron  } from 'reactstrap';
+import { Navbar, NavbarBrand, Nav,  NavItem,Jumbotron } from 'reactstrap';
 import { Link} from "react-router-dom";
 const NavbarComponent = ({numb}) => {
     return (
@@ -15,7 +15,7 @@ const NavbarComponent = ({numb}) => {
                             <a className="nav-link" href="/menu"> 
                                <Link to="/cart"><span className="fa fa-shopping-cart fa-lg " aria-hidden="true"></span> </Link>
                             </a>
-                            {numb}
+                            <h5>{numb}</h5> 
                       </NavItem>
                     </Nav>
                 </div>
