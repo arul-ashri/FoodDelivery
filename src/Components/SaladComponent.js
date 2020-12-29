@@ -2,7 +2,7 @@ import React from 'react'
 import { Card, CardTitle, CardBody, CardSubtitle, CardText, Button } from 'reactstrap';
 
 
-function Salad ({data,setCart,cart}) { 
+function Salad ({data,setCart,cart,name}) { 
 
   
 
@@ -15,7 +15,26 @@ function Salad ({data,setCart,cart}) {
     }
 
     const AddMore = (data) =>{
-        setCart([...cart,data.quantity++]);
+        setCart(cart.map(
+            (item) => {
+                if (item.id === data.id){
+                    item.quantity++;
+                    return item;
+                }
+                return item;
+            }
+        ));
+    }
+    const Decrease = (data) =>{
+        setCart(cart.map(
+            (item) => {
+                if (item.id === data.id){
+                    item.quantity--;
+                    return item;
+                }
+                return item;
+            }
+        ));
     }
     
 
@@ -26,11 +45,11 @@ function Salad ({data,setCart,cart}) {
                 <Card>
                 <CardBody>
                     <CardTitle tag="h3">{data.name}</CardTitle>
-                    <CardSubtitle>{data.desc}</CardSubtitle>
+                   {/* <CardSubtitle>{data.desc}</CardSubtitle>*/}
                     <div className="row"> 
                         <div className="col-7"> <CardText tag="h3">₹{data.price}</CardText> </div>
                         { isInCart(data) && <div className="col-5"> <Button  onClick={() =>AddtoCart(data)}> Add to Cart</Button> </div>}
-                        { !isInCart(data) && <div className="col-5"> <Button  onClick={() =>AddMore(data)}> Add More</Button> </div>}
+                        { !isInCart(data) && <div className="col-5"> <Button  onClick={() =>Decrease(data)}> -</Button> {data.quantity}  <Button  onClick={() =>AddMore(data)}> +</Button></div>}
                     </div>
                    
                 </CardBody>
@@ -53,9 +72,15 @@ function Salad ({data,setCart,cart}) {
         );
     });
 
+    var MenuList = data.map(data =>{
+        return(
+            <Salad data={data} key={data.id} />
+
+        );
+    });
     return(
         <div className="container mt-5 p-auto">
-        <h1>Salad</h1>
+        <h1>{name}</h1>
         {SaladList}
         </div>
     )
