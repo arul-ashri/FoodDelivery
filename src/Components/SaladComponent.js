@@ -1,4 +1,3 @@
-import { data } from 'flickity';
 import React from 'react'
 import { Card, CardTitle, CardBody, CardSubtitle, CardText, Button } from 'reactstrap';
 
@@ -12,7 +11,7 @@ function Salad ({menu,setCart,cart}) {
     }
 
     const isInCart = (data) => {
-        return !cart.find(item => item.id === data.id);
+    {/* return !cart.find(item => item.id === data.id);        */}
     }
 
     const AddMore = (data) =>{
@@ -67,7 +66,7 @@ function Salad ({menu,setCart,cart}) {
 
     return(
         <div className="container mt-5 p-auto">
-            {data.map(data => <SaladItem data={menu} key={menu.id} />)}
+            {menu.map(data => <SaladItem data={data} key={data.id} />)}
         </div>
     )
 };
