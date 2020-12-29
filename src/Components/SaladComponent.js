@@ -1,8 +1,9 @@
+import { data } from 'flickity';
 import React from 'react'
 import { Card, CardTitle, CardBody, CardSubtitle, CardText, Button } from 'reactstrap';
 
 
-function Salad ({data,setCart,cart,name}) { 
+function Salad ({menu,setCart,cart}) { 
 
   
 
@@ -64,24 +65,9 @@ function Salad ({data,setCart,cart,name}) {
             
     );
 
-
-    var SaladList = data.map(data =>{
-        return(
-            <SaladItem data={data} key={data.id} />
-
-        );
-    });
-
-    var MenuList = data.map(data =>{
-        return(
-            <Salad data={data} key={data.id} />
-
-        );
-    });
     return(
         <div className="container mt-5 p-auto">
-        <h1>{name}</h1>
-        {SaladList}
+            {data.map(data => <SaladItem data={menu} key={menu.id} />)}
         </div>
     )
 };

@@ -32,6 +32,11 @@ const MenuRender = ({setCart,cart}) => {
          return data.name.toLowerCase().includes( search.toLowerCase())
     })
 
+    var FullMenu =appState.menu.map(data =>{
+        return(
+            <Salad menu={appState.menu} key={appState.menu.id} />
+        )
+    })
 
     return (
         <div>
@@ -39,7 +44,7 @@ const MenuRender = ({setCart,cart}) => {
             <div className="container mt-5" align="center">
               <input type="text" placeholder="Search.." onChange={(e) => setSearch(e.target.value)}/>
             </div>
-            <Salad data={filterSalad} setCart={setCart} cart={cart} name="Salad"/>
+            {FullMenu}
         </div>
     )
 }
