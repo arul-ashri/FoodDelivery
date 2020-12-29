@@ -9,11 +9,11 @@ const MenuRender = ({setCart,cart}) => {
 
     const [appState, setAppState] = useState({
         loading: false,
-        menu: null,
+        menu: [],
       });
 
       useEffect(() => {
-        setAppState({ loading: true });
+        setAppState({ loading: true, menu: [] });
         const apiUrl = `https://debug.kyukey.tech/api/dining/menu/`;
         fetch(apiUrl)
           .then((res) => res.json())
@@ -34,7 +34,7 @@ const MenuRender = ({setCart,cart}) => {
 
     var FullMenu =appState.menu.map(data =>{
         return(
-            <Salad menu={appState.menu} key={appState.menu.id} />
+            <Salad menu={data} key={data.id} />
         )
     })
 
