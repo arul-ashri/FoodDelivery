@@ -34,9 +34,11 @@ const MenuRender = ({setCart,cart}) => {
 
     var FullMenu =appState.menu.map(data =>{
         return(
-            <Salad menu={data} key={data.id} />
+            <Salad menu={data.items} key={data.category} />
         )
     })
+
+    console.log({appState});
 
     return (
         <div>
