@@ -1,5 +1,5 @@
 import React from 'react'
-import { Card, CardTitle, CardBody, CardSubtitle, CardText, Button } from 'reactstrap';
+import { Card, CardTitle, CardBody, CardText, Button } from 'reactstrap';
 
 
 function Salad ({menu,setCart,cart}) { 
@@ -7,11 +7,12 @@ function Salad ({menu,setCart,cart}) {
   
 
     const AddtoCart = (data) =>{
+        data.quantity=1;
         setCart([...cart,data]);
     }
 
     const isInCart = (data) => {
-    {/* return !cart.find(item => item.id === data.id);        */}
+     return !cart.find(item => item.id === data.id);    
     }
 
     const AddMore = (data) =>{
@@ -36,29 +37,44 @@ function Salad ({menu,setCart,cart}) {
             }
         ));
     }
+
+    const RemoveCart = (Toremove) =>{
+        setCart(
+            cart.filter((data) => data !== Toremove)
+        );
+    }
     
 
    
     const SaladItem = ({ data }) => (
-        <div className="row">
-            <div className="mt-2 col-md-7">
-                <Card>
+        <div className="row justify-content-center">
+            <div className="mt-2 col-9">
+                <Card className="saladItem">
                 <CardBody>
                     <CardTitle tag="h3">{data.name}</CardTitle>
                    {/* <CardSubtitle>{data.desc}</CardSubtitle>*/}
                     <div className="row"> 
-                        <div className="col-7"> <CardText tag="h3">₹{data.price}</CardText> </div>
-                        { isInCart(data) && <div className="col-5"> <Button  onClick={() =>AddtoCart(data)}> Add to Cart</Button> </div>}
-                        { !isInCart(data) && <div className="col-5"> <Button  onClick={() =>Decrease(data)}> -</Button> {data.quantity}  <Button  onClick={() =>AddMore(data)}> +</Button></div>}
+                        <div className="col-6"> <CardText tag="h3">₹{data.price}</CardText> </div>
+                        <div className="col-5">
+                            { isInCart(data) &&  <div  ><Button color="danger" style={{fontSize: 10, fontWeight: 'bold', height: 35,width:110}} onClick={() =>AddtoCart(data)}>ADD TO CART</Button> </div>}
+
+                            { !isInCart(data) && data.quantity !== 0 && 
+                                <div style={{height:35}}>
+                                    <div className="row " >
+                                        <Button  color="danger" className=" col-3 ml-2" style={{height:35,width:36}} onClick={() =>Decrease(data)}> -</Button> 
+                                        <h4 align="center" className="p-1 col-3" style={{height:35,width:36,color:'white',border: '1px rgb(221,52,68) solid',borderRadius: 5,}}>{data.quantity} </h4>
+                                        <Button color="danger" className="col-3" style={{height:35,width:36}} onClick={() =>AddMore(data)}> +</Button>
+                                    </div>
+                                </div>}
+
+                            { !isInCart(data) && data.quantity === 0 && <div> <Button  color="danger" style={{fontSize: 10, fontWeight: 'bold',width:110,height:35}} onClick={() =>RemoveCart(data)}> REMOVE</Button></div>}
+                        </div>
                     </div>
                    
                 </CardBody>
                 
                 </Card>
                 <hr className="my-2" />
-            </div>
-            <div className="mt-2 col-md-3">
-                
             </div>
         </div>
             

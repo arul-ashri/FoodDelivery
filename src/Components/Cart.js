@@ -39,9 +39,9 @@ const CartComponent = ({setCart,cart}) => {
     }
 
     const CartItem = ({ data }) => (
-        <div className="row">
-            <div className="mt-2 col">
-                <Card>
+        <div className="row justify-content-center">
+            <div className="mt-2 col-9">
+                <Card className="saladItem">
                 <CardBody>
                     <CardTitle tag="h3" className="row"><div  className="col-8">{data.name}</div> <div className="col">x {data.quantity} </div></CardTitle>
                     <div className="row"> 
@@ -64,7 +64,9 @@ const CartComponent = ({setCart,cart}) => {
 
     var CartList = cart.map(data =>{
         return(
-            <CartItem data={data} key={data.id} />
+            <div > 
+             <CartItem data={data} key={data.id} />
+            </div>
 
         );
     });
@@ -81,7 +83,7 @@ const CartComponent = ({setCart,cart}) => {
             <div className="container">
             <div className="row justify-content-center">
         <div className="col-8 col-offset">
-            <Card >
+            <Card className="saladItem">
                 <CardBody align="center">
                     <CardTitle tag="h3">Total</CardTitle>
                     <h5> ₹ {tot}</h5>
@@ -95,11 +97,13 @@ const CartComponent = ({setCart,cart}) => {
 
     return (
         <div className="container">
-           <div>
+           <div className="saladCard mt-5 pb-5">
             
            <h1 align="center">Cart ({cart.length})</h1>
                  <div>
                   {CartList}
+                  </div>
+                  <div>
                   <TotalRender />
                  </div>
             </div> 

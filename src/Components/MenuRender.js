@@ -1,7 +1,5 @@
 import React ,{useState,useEffect}from 'react';
 import Salad from './SaladComponent';
-import SaladData from '../Shared/SaladData';
-import PizzaData from '../Shared/PizzaData';
 import CarouselComp from './CarouselComp';
 
 
@@ -25,28 +23,28 @@ const MenuRender = ({setCart,cart}) => {
     const [search, setSearch] = useState('');
 
 
-    const filterSalad = SaladData.filter(data =>{
-        return data.name.toLowerCase().includes( search.toLowerCase())
-    })
-    const filterPizza = PizzaData.filter(data =>{
-         return data.name.toLowerCase().includes( search.toLowerCase())
-    })
-
     var FullMenu =appState.menu.map(data =>{
+
+        const filterData=data.items.filter(data =>{
+            return data.name.toLowerCase().includes( search.toLowerCase())
+        })
+
         return(
-            <Salad menu={data.items} key={data.category} />
+            <Salad menu={filterData} key={data.category}  setCart={setCart} cart={cart}/>
         )
     })
 
-    console.log({appState});
 
     return (
-        <div>
+        <div className="p-4">
             <CarouselComp />
-            <div className="container mt-5" align="center">
+            <div className="container mt-5 " align="center">
               <input type="text" placeholder="Search.." onChange={(e) => setSearch(e.target.value)}/>
             </div>
-            {FullMenu}
+            <div className="saladCard container">
+             {FullMenu}
+            </div>
+           
         </div>
     )
 }
