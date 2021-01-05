@@ -5,7 +5,8 @@ import { Card, CardTitle, CardImg,} from 'reactstrap';
 
 function CarouselComp () {
     return (
-        <div className="container pt-2" align="center" >
+        <div className=" pt-2" align="center" >
+        <div className="saladCard">
          <Flickity  >
                 <div className="m-2 col-8" >
                 <Card  className="saladItem">
@@ -41,6 +42,7 @@ function CarouselComp () {
   
          
         </Flickity>
+        </div>
             
         </div>
     )

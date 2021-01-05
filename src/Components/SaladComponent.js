@@ -2,7 +2,7 @@ import React from 'react'
 import { Card, CardTitle, CardBody, CardText, Button } from 'reactstrap';
 
 
-function Salad ({menu,setCart,cart}) { 
+function Salad ({menu,setCart,cart,name}) { 
 
   
 
@@ -62,7 +62,7 @@ function Salad ({menu,setCart,cart}) {
                                 <div style={{height:35}}>
                                     <div className="row " >
                                         <Button  color="danger" className=" col-3 ml-2" style={{height:35,width:36}} onClick={() =>Decrease(data)}> -</Button> 
-                                        <h4 align="center" className="p-1 col-3" style={{height:35,width:36,color:'white',border: '1px rgb(221,52,68) solid',borderRadius: 5,}}>{data.quantity} </h4>
+                                        <h4 align="center" className="p-1 col-3 App" style={{height:35,width:36,color:'white',border: '1px rgb(221,52,68) solid',borderRadius: 5,}}><div className="App">{data.quantity} </div> </h4>
                                         <Button color="danger" className="col-3" style={{height:35,width:36}} onClick={() =>AddMore(data)}> +</Button>
                                     </div>
                                 </div>}
@@ -82,6 +82,7 @@ function Salad ({menu,setCart,cart}) {
 
     return(
         <div className="container mt-5 p-auto">
+        <div  style={{fontWeight: 'bolder',fontSize: 40}} align="center">{name}</div>
             {menu.map(data => <SaladItem data={data} key={data.id} />)}
         </div>
     )
