@@ -24,7 +24,7 @@ const CartComponent = ({setCart,cart}) => {
              .then((res) => res.json())
              .then(data => {
                  setOrder({name:"joe",table: "4c930b1f-f733-46c6-ba74-6bde6105b8d3", list: {cart},})
-                 console.log()
+                 console.log({order})
              });
     },[]);
 
