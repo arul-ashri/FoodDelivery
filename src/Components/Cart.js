@@ -1,11 +1,17 @@
 import React ,{useState,useEffect}from 'react';
 import {Link} from "react-router-dom";
 import { Card, CardTitle, CardBody, CardText, Button } from 'reactstrap';
+import { Input } from 'reactstrap';
 
 
 
 
 const CartComponent = ({setCart,cart}) => {
+    
+    const [place, setPlace] = useState(false)
+
+    
+    console.log({place})
 
     const [order, setOrder] = useState({
         name: "",
@@ -24,10 +30,10 @@ const CartComponent = ({setCart,cart}) => {
              .then((res) => res.json())
              .then(data => {
                  setOrder({name:"joe",table: "4c930b1f-f733-46c6-ba74-6bde6105b8d3", list: {cart},})
-                 console.log({order})
              });
-    },[]);
+    },[setOrder,cart]);
 
+    console.log({order});
 
     const RemoveCart = (Toremove) =>{
         setCart(
@@ -117,28 +123,61 @@ const CartComponent = ({setCart,cart}) => {
         </div>
 
         )}
+    
+        const CartRender = () =>{
+         if(!place){
+            return(
+                <div>
+                    <div className="saladCard mt-5 pb-5"> 
+                        <h1 align="center">Cart ({cart.length})</h1>
+                        <div className="container">
+                            {CartList}
+                        </div>
+                        <div>
+                            <TotalRender />
+                        </div>
+                    </div>
+                    <div align="center">
+                       <Button color="primary" onClick={() =>setPlace(true)}>PROCEDD</Button>
+                    </div>
+                </div> 
+            )}
+            return(<div></div>)
 
+        }
+
+        const NameRender = () =>{
+            if(place){
+                return(
+                    <div>
+                        <div className="saladCard mt-5 pb-5">
+                            <h3 align="center">Enter Your Name</h3>
+                            <Input placeholder="your name.." />
+                        </div>
+                        <div align="center">
+                          <Button color="danger" onClick={() =>setPlace(false)}>Cancel</Button>
+                          <Button color="success" onClick={() =>setPlace(false)}>Place Order</Button>
+                        </div>
+                    </div>
+                )
+            }
+            return(<div></div>)
+        }
+       
+
+      
     return (
         <div className="container cart">
-        <div className="float row" align="center">
-            <Link className="ml-3" to="/"><h5><span className="fa fa-home fa-lg my-float " aria-hidden="true"></span></h5></Link>
-        </div>
-        <div className="container">
-           <div className="saladCard mt-5 pb-5">
+            <div className="float row" align="center">
+                    <Link className="ml-3" to="/"><h5>.<span className="fa fa-home fa-lg my-float " aria-hidden="true"></span></h5></Link>
+            </div>
+            <div className="container">
+               <CartRender />
+               <NameRender />
+            </div>
             
-           <h1 align="center">Cart ({cart.length})</h1>
-                 <div className="container">
-                  {CartList}
-                  </div>
-                  <div>
-                  <TotalRender />
-                 </div>
-            </div> 
         </div>
-         <div align="center">
-            <Button color="primary">PLACE ORDER</Button>
-         </div>
-        </div>
+    
     )
 }
 
