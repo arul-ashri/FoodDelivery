@@ -8,10 +8,10 @@ import { Input } from 'reactstrap';
 
 const CartComponent = ({setCart,cart}) => {
     
-    const [place, setPlace] = useState(false)
+    const [place, setPlace] = useState(false);
+    const [name, setName] = useState("");
 
     
-    console.log({place})
 
     const [order, setOrder] = useState({
         name: "",
@@ -29,11 +29,10 @@ const CartComponent = ({setCart,cart}) => {
         fetch(apiUrl, requestOptions)
              .then((res) => res.json())
              .then(data => {
-                 setOrder({name:"joe",table: "4c930b1f-f733-46c6-ba74-6bde6105b8d3", list: {cart},})
+                 setOrder({name: {name} ,table: "4c930b1f-f733-46c6-ba74-6bde6105b8d3", list: {cart},})
              });
-    },[setOrder,cart]);
+    },[setOrder,cart,name]);
 
-    console.log({order});
 
     const RemoveCart = (Toremove) =>{
         setCart(
@@ -138,13 +137,18 @@ const CartComponent = ({setCart,cart}) => {
                         </div>
                     </div>
                     <div align="center">
-                       <Button color="primary" onClick={() =>setPlace(true)}>PROCEDD</Button>
+                       <Button color="primary" onClick={() =>setPlace(true)}>PROCEED</Button>
                     </div>
                 </div> 
             )}
             return(<div></div>)
 
         }
+        const PlaceOrder = () =>{
+            console.log({order})
+        }
+
+        
 
         const NameRender = () =>{
             if(place){
@@ -152,11 +156,11 @@ const CartComponent = ({setCart,cart}) => {
                     <div>
                         <div className="saladCard mt-5 pb-5">
                             <h3 align="center">Enter Your Name</h3>
-                            <Input placeholder="your name.." />
+                            <Input placeholder="your name.." value={name} onChange={e => setName(e.target.value)} />
                         </div>
                         <div align="center">
                           <Button color="danger" onClick={() =>setPlace(false)}>Cancel</Button>
-                          <Button color="success" onClick={() =>setPlace(false)}>Place Order</Button>
+                          <Button color="success" onClick={() =>PlaceOrder()}>Place Order</Button>
                         </div>
                     </div>
                 )
