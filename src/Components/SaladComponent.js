@@ -56,7 +56,7 @@ function Salad ({menu,setCart,cart,name}) {
                     <div className="row"> 
                         <div className="col-6"> <CardText tag="h3">₹{data.price}</CardText> </div>
                         <div className="col-5">
-                            { isInCart(data) &&  <div  ><Button color="danger" style={{fontSize: 10, fontWeight: 'bold', height: 35,width:110}} onClick={() =>AddtoCart(data)}>ADD</Button> </div>}
+                            { isInCart(data) &&  <div  ><Button color="danger" style={{fontSize: 17, fontWeight: 'bold', height: 35,width:110}} onClick={() =>AddtoCart(data)}>ADD</Button> </div>}
 
                             { !isInCart(data) && data.quantity !== 0 && 
                                 <div style={{height:35}}>
@@ -67,7 +67,7 @@ function Salad ({menu,setCart,cart,name}) {
                                     </div>
                                 </div>}
 
-                            { !isInCart(data) && data.quantity === 0 && <div> <Button  color="danger" style={{fontSize: 10, fontWeight: 'bold',width:110,height:35}} onClick={() =>RemoveCart(data)}> REMOVE</Button></div>}
+                            { !isInCart(data) && data.quantity === 0 && <div> <Button  color="danger" style={{fontSize: 17, fontWeight: 'bold',width:110,height:35}} onClick={() =>RemoveCart(data)}> REMOVE</Button></div>}
                         </div>
                     </div>
                    

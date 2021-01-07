@@ -44,7 +44,7 @@ const MenuRender = ({setCart,cart}) => {
     return (
         <div className="p-4">
         <div className="float row pt-1" align="center">
-            <Link className="ml-3" to="/cart"><span className="fa fa-shopping-cart fa-lg my-float " aria-hidden="true"></span></Link>
+            <Link className="ml-3" to="/cart"><span style={{color: 'rgb(221,52,68)'}} className="fa fa-shopping-cart fa-lg my-float " aria-hidden="true"></span></Link>
             <h5 style={{color: 'black'}}>{cart.length}</h5>
         </div>
             <CarouselComp />

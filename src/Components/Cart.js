@@ -139,7 +139,7 @@ const CartComponent = ({ setCart, cart }) => {
                         </div>
                         <div className="mt-4 mb-2">
                             <div align="center">
-                                {!pdfDis &&  ( <Button color="primary" onClick={() => setPlace(true)}>PROCEED</Button>)}
+                                {!pdfDis &&  ( <Button color="danger" onClick={() => setPlace(true)}>PROCEED</Button>)}
                                 {pdfDis && ( <Button color="primary" onClick={() => pdfDownload()}>Download</Button>)}
                             </div>
                         </div>
@@ -216,7 +216,7 @@ const CartComponent = ({ setCart, cart }) => {
     return (
         <div className="container cart">
             <div className="float row" align="center">
-                <Link className="ml-3" to="/"><h5>.<span className="fa fa-home fa-lg my-float " aria-hidden="true"></span></h5></Link>
+                <Link className="ml-3" to="/"><h5>.<span style={{color: 'rgb(221,52,68)'}} className="fa fa-home fa-lg my-float " aria-hidden="true"></span></h5></Link>
             </div>
             <div className="container">
                 {!place && (<CartRender />)}
