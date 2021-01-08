@@ -47,7 +47,7 @@ const MenuRender = ({setCart,cart}) => {
             <Link className="ml-3" to="/cart"><span style={{color: 'rgb(221,52,68)'}} className="fa fa-shopping-cart fa-lg my-float " aria-hidden="true"></span></Link>
             <h5 style={{color: 'black'}}>{cart.length}</h5>
         </div>
-            <CarouselComp />
+            <CarouselComp data={appState.menu} />
             <div className="container mt-5 " align="center">
             <InputGroup className="m-2 mb-4 saladCard">
               <InputGroupText><span className="fa fa-search"></span></InputGroupText>
