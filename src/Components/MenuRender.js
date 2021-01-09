@@ -5,27 +5,13 @@ import {Link} from "react-router-dom";
 import { InputGroup, InputGroupText, Input } from 'reactstrap';
 
 
-const MenuRender = ({setCart,cart}) => {
+const MenuRender = ({setCart,cart,data,setData}) => {
 
-    const [appState, setAppState] = useState({
-        loading: false,
-        menu: [],
-      });
-
-      useEffect(() => {
-        setAppState({ loading: true, menu: [] });
-        const apiUrl = `https://debug.kyukey.tech/api/dining/menu/`;
-        fetch(apiUrl)
-          .then((res) => res.json())
-          .then((menu) => {
-            setAppState({ loading: false, menu: menu});
-          });
-      }, [setAppState]);
-
+    
     const [search, setSearch] = useState('');
 
 
-    var FullMenu =appState.menu.map(data => {
+    var FullMenu =data.menu.map(data => {
 
         const filterData=data.items.filter(data =>{
             return data.name.toLowerCase().includes( search.toLowerCase())
@@ -47,7 +33,7 @@ const MenuRender = ({setCart,cart}) => {
             <Link className="ml-3" to="/cart"><span style={{color: 'rgb(221,52,68)'}} className="fa fa-shopping-cart fa-lg my-float " aria-hidden="true"></span></Link>
             <h5 style={{color: 'black'}}>{cart.length}</h5>
         </div>
-            <CarouselComp data={appState.menu} />
+            <CarouselComp data={data.menu} />
             <div className="container mt-5 " align="center">
             <InputGroup className="m-2 mb-4 saladCard">
               <InputGroupText><span className="fa fa-search"></span></InputGroupText>

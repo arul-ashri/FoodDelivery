@@ -208,7 +208,7 @@ const CartComponent = ({ setCart, cart }) => {
     return (
         <div className="container cart">
             <div className="float row" align="center">
-                <Link className="ml-3" to="/"><h5>.<span style={{color: 'rgb(221,52,68)'}} className="fa fa-home fa-lg my-float " aria-hidden="true"></span></h5></Link>
+                <Link className="ml-3" to="/home"><h5>.<span style={{color: 'rgb(221,52,68)'}} className="fa fa-home fa-lg my-float " aria-hidden="true"></span></h5></Link>
             </div>
             <div className="container">
                 {!place && (<CartRender />)}
