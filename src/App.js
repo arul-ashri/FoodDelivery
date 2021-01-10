@@ -54,7 +54,7 @@ const App = () => {
          
           <Switch>
             <Route exact path ="/"><LandingPage /> </Route>
-            <Route  path ="/home"> <NavbarComponent numb={cart.length} /><MenuRender  setCart={setCart}  cart={cart}/> data={appState} setData={setAppState} </Route>
+            <Route  path ="/home"> <NavbarComponent numb={cart.length} /><MenuRender  setCart={setCart}  cart={cart} data={appState} setData={setAppState} />  </Route>
             <Route  path ="/utility"> <NavbarComponent numb={cart.length} /><MenuRender  setCart={setCart}  cart={cart} data={appSt} setData={setAppSt}/> </Route>
             <Route path="/cart"><NavbarComponent numb={cart.length} /> <CartComponent  cart={cart} setCart={setCart}/> </Route>
           </Switch> 
